@@ -8,5 +8,24 @@
 *.war
 *.ear
 
+# IntelliJ Files
+*.iml
+
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+
+# development folders
+
+.idea/
+.data/
+.adf/
+.data/*
+.data*
+.data/*
+.data/
+Model/classes/
+ViewController/classes/
+ViewController/public_html/WEB-INF
+/Model/target/maven-archiver/pom.properties
+/ViewController/target/maven-archiver/pom.properties
+/resourcebundles/xliffBundles/SXDOCS_SHEDULEROverrideBundle.xlf

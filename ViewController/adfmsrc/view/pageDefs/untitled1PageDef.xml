@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.2.66.68" id="untitled1PageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="root" RangeSize="25" DataControl="PieDataDS" id="PieDataDSIterator"/>
+    <accessorIterator MasterBinding="PieDataDSIterator" Binds="list" RangeSize="-1" DataControl="PieDataDS"
+                      BeanClass="piedatasource.Data" id="listIterator"/>
+    <iterator Binds="root" RangeSize="25" DataControl="PieDataDS1" id="PieDataDSIterator1"/>
+    <accessorIterator MasterBinding="PieDataDSIterator1" Binds="data" RangeSize="25" DataControl="PieDataDS1"
+                      BeanClass="sx.bean.DataUnit" id="dataIterator"/>
+  </executables>
+  <bindings>
+    <graph IterBinding="listIterator" id="list" xmlns="http://xmlns.oracle.com/adfm/dvt" type="RING">
+      <graphDataMap convert="false" leafOnly="true">
+        <series>
+          <item value="name"/>
+        </series>
+        <groups>
+          <data>
+            <item value="value"/>
+          </data>
+        </groups>
+      </graphDataMap>
+    </graph>
+    <methodAction id="makeItRain" RequiresUpdateModel="true" Action="invokeMethod" MethodName="makeItRain"
+                  IsViewObjectMethod="false" DataControl="PieDataDS" InstanceName="data.PieDataDS.dataProvider"
+                  ReturnName="data.PieDataDS.methodResults.makeItRain_PieDataDS_dataProvider_makeItRain_result"/>
+    <action IterBinding="listIterator" id="Execute" InstanceName="piedatasource.PieData.list" DataControl="PieDataDS"
+            RequiresUpdateModel="true" Action="iteratorExecute"/>
+  </bindings>
+</pageDefinition>
